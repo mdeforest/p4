@@ -11,33 +11,24 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+/*
+ * Home
+ */
+Route::get('/', 'WelcomeController@index');
 
-Route::get('/debug', function () {
+/*
+ * Searches
+ */
+Route::get('/search', 'SearchController@create');
+Route::get('/search-process', 'SearchController@processSearch');
+Route::get('/search/created', 'SearchController@searchCreated');
 
-    $debug = [
-        'Environment' => App::environment(),
-        'Database defaultStringLength' => Illuminate\Database\Schema\Builder::$defaultStringLength,
-    ];
+Route::get('/modify', 'SearchController@modifyIndex');
+Route::get('/modify/{name}', 'SearchController@modify');
+Route::put('/modify-process', 'SearchController@processModify');
+Route::get('/modify/{name}/updated', 'SearchController@modifyUpdated');
 
-    /*
-    The following commented out line will print your MySQL credentials.
-    Uncomment this line only if you're facing difficulties connecting to the
-    database and you need to confirm your credentials. When you're done
-    debugging, comment it back out so you don't accidentally leave it
-    running on your production server, making your credentials public.
-    */
-    #$debug['MySQL connection config'] = config('database.connections.mysql');
+Route::get('/review', 'SearchController@reviewIndex');
+Route::get('/review/{name}', 'SearchController@review');
 
-    try {
-        $databases = DB::select('SHOW DATABASES;');
-        $debug['Database connection test'] = 'PASSED';
-        $debug['Databases'] = array_column($databases, 'Database');
-    } catch (Exception $e) {
-        $debug['Database connection test'] = 'FAILED: '.$e->getMessage();
-    }
-
-    dump($debug);
-});
+Route::delete('/remove', 'SearchController@remove');
