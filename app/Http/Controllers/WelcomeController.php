@@ -11,4 +11,10 @@ class WelcomeController extends Controller
 
         return view('welcome.index');
     }
+
+    public function welcome(Request $request) {
+        // Welcome page
+
+        return view('welcome.welcome');
+    }
 }
