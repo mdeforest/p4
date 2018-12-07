@@ -32,3 +32,5 @@ Route::get('/review', 'SearchController@reviewIndex');
 Route::get('/review/{name}', 'SearchController@review');
 
 Route::delete('/remove', 'SearchController@remove');
+
+Auth::routes();
