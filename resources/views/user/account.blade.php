@@ -16,6 +16,10 @@ Account
             <h2 class='page-header'>My Account</h2>
             <div class='info'>
                 <p class='data-edit'>
+                    <span class='data'>Name</span><span class='edit'>Edit</span>
+                </p>
+                <p class='help'>Name</p>
+                <p class='data-edit'>
                     <span class='data'>Username</span><span class='edit'>Edit</span>
                 </p>
                 <p class='help'>Username</p>
