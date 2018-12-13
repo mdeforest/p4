@@ -14,8 +14,8 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-    <link rel='stylesheet' type='text/css' href='css/globals/all.css'>
-    <link rel='stylesheet' type='text/css' href='css/modules/navbar.css'>
+    <link rel='stylesheet' type='text/css' href='/css/globals/all.css'>
+    <link rel='stylesheet' type='text/css' href='/css/modules/navbar.css'>
 
     <title>@yield('title', config('app.name'))</title>
 
@@ -23,12 +23,13 @@
 
 </head>
 <body>
+<div class='container-fluid'>
+    <header>
+        @include('partials._header')
+    </header>
 
-<header>
-    @include('partials._header')
-</header>
-
-@yield('content')
+    @yield('content')
+</div>
 
 @stack('body')
 </body>
