@@ -1,0 +1,37 @@
+img {
+    width: 150px!important;
+    padding-top: 5px;
+}
+
+input {
+    border-color: #9D9D9D;
+}
+
+label {
+    font-style: italic;
+    color: #9D9D9D;
+}
+
+.info-text {
+    margin-top: 5px;
+    color: #EE0E51;
+}
+
+.info-text > a,
+.info-text > a:hover,
+.info-text > a:active,
+.info-text > a:visited {
+    color: #D60443;
+}
+
+.login-box {
+    margin-top: 50px;
+    width: 350px;
+    border: 1px solid #EE0E51;
+}
+
+.title-text {
+    color: #EE0E51;
+    font-size: 1em;
+    font-weight: bold;
+}

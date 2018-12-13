@@ -1,0 +1,35 @@
+a,
+a:hover,
+a:active,
+a:visited {
+    color: #EE0E51;
+    text-decoration: none;
+}
+
+h1 {
+    color: #EE0E51;
+    font-size: 74px;
+}
+
+p {
+    font-size: 20px;
+}
+
+.bottom {
+    margin-top: 50px;
+}
+
+.col {
+    margin-top: 40px;
+}
+
+.links {
+    display: block;
+    color: #EE0E51;
+    font-size: 36px;
+}
+
+.top {
+    margin-top: 100px;
+}
+

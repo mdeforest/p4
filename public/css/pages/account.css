@@ -1,0 +1,34 @@
+.btn-bottom-left {
+    margin-left: 20px;
+}
+
+.data {
+    border-bottom: 1px solid #000000;
+    font-size: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.data-edit {
+    margin-bottom: 0;
+}
+
+.edit {
+    color: #EE0E51;
+    margin-left: 10px;
+    font-size: 12px;
+}
+
+.fixed-bottom {
+    margin-bottom: 20px;
+}
+
+.help {
+    margin-top: 0;
+}
+
+.info {
+    margin-left: 25px;
+    font-size: 10px;
+}
+

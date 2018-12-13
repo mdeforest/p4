@@ -1,0 +1,54 @@
+fieldset {
+    display: inline-block;
+}
+
+fieldset > input,
+fieldset > select {
+    display: inline-block;
+}
+
+label {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+legend {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.additional-col {
+    padding-left: 26px;
+    margin-top: 8px;
+}
+
+.bottom-row {
+    margin-top: 20px;
+}
+
+.card-link,
+.card-link:hover {
+    color: inherit;
+    text-decoration: none;
+}
+
+.checkbox-value {
+    padding-left: 26px;
+}
+
+.custom-select {
+    background-image: url('/images/down-arrow.svg');
+    background-size: 15px auto;
+}
+
+.form-extra {
+    padding-top: 6px;
+    font-size: 13px;
+}
+
+.page-header-action {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
