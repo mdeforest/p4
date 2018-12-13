@@ -1,7 +1,3 @@
-img {
-    width: 261px;
-}
-
 nav {
     background-color: #ffffff;
 }
@@ -12,4 +8,8 @@ nav {
 
 .fnt-navbar-large {
     font-size: 36px;
+}
+
+.img-nav {
+    width: 261px;
 }
