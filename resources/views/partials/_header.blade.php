@@ -16,7 +16,10 @@
                     <a class='nav-item nav-link ml-3 fnt-navbar-small dropdown-toggle' role='button' href='/account' id="accountDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user pink-font icon-space"></i></a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="accountDropdown">
                         <a class='dropdown-item' href='/account'>My Account</a>
-                        <a class="dropdown-item" href="#">Log Out</a>
+                        <form method='POST' id='logout' action='/logout'>
+                            {{ csrf_field() }}
+                            <a class="dropdown-item" href="#" onClick='document.getElementById("logout").submit();'>Log Out</a>
+                        </form>
                     </div>
                 </div>
             @endguest
