@@ -4,6 +4,21 @@ body {
     font-family: 'Inconsolata', monospace;
 }
 
+.btn {
+    font-size: 23px;
+}
+
 .fnt-small {
-    font-size: 36px;
+    font-size: 33px;
+}
+
+.page-details {
+    font-size: 16px;
+    color: #EE0E51;
+}
+
+.page-header {
+    font-size: 35px;
+    color: #EE0E51;
+    font-weight: bold;
 }

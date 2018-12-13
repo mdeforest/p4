@@ -6,8 +6,56 @@
     color: black;
 }
 
-.text-box-pink {
+.btn-pink {
+    color: #ffffff;
     background-color: #EE0E51;
+    border-color: #EE0E51;
+}
+
+.btn-pink:hover,
+.btn-pink:focus,
+.btn-pink:active,
+.btn-pink.active,
+.open .dropdown-toggle.btn-pink {
+    color: #ffffff;
+    background-color: #D60443;
+    border-color: #EE0E51;
+}
+
+.btn-pink:active,
+.btn-pink.active,
+.open .dropdown-toggle.btn-pink {
+    background-image: none;
+}
+
+.btn-pink.disabled,
+.btn-pink[disabled],
+fieldset[disabled] .btn-pink,
+.btn-pink.disabled:hover,
+.btn-pink[disabled]:hover,
+fieldset[disabled] .btn-pink:hover,
+.btn-pink.disabled:focus,
+.btn-pink[disabled]:focus,
+fieldset[disabled] .btn-pink:focus,
+.btn-pink.disabled:active,
+.btn-pink[disabled]:active,
+fieldset[disabled] .btn-pink:active,
+.btn-pink.disabled.active,
+.btn-pink[disabled].active,
+fieldset[disabled] .btn-pink.active {
+    background-color: #EE0E51;
+    border-color: #EE0E51;
+}
+
+.btn-pink .badge {
+    color: #EE0E51;
+    background-color: #ffffff;
+}
+
+.text-box-pink {
+    color: #ffffff;
+    background-color: #EE0E51;
+    border-color: #EE0E51;
 }
 
 .white-font {
