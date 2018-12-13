@@ -22,3 +22,14 @@ namespace App{
 	class User extends \Eloquent {}
 }
 
+namespace App{
+/**
+ * App\Search
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Search newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Search newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Search query()
+ */
+	class Search extends \Eloquent {}
+}
+
