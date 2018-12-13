@@ -19,11 +19,11 @@ Log In
                     <form method='POST' action='{{ route('login') }}'>
                         {{ csrf_field() }}
                         <div class='form-group'>
-                            <input type='text' class='form-control' id='username' aria-describedby='username'>
+                            <input type='text' class='form-control' id='username' aria-describedby='username' name='username'>
                             <label for='username'>Username</label>
                         </div>
                         <div class='form-group'>
-                            <input type='password' class='form-control' id='password' aria-describedby='password'>
+                            <input type='password' class='form-control' id='password' aria-describedby='password' name='password'>
                             <label for='password'>Password</label>
                         </div>
                         <div class='text-center'>
