@@ -12,12 +12,17 @@ class PlatformsTableSeeder extends Seeder
      */
     public function run()
     {
-        $platform = new Platform();
+        $string = file_get_contents(database_path('/data/platforms_criteria.json'));
+        $criteria_data = json_decode($string, true);
 
-        $platform->created_at = Carbon\Carbon::now()->subDays(1)->toDateTimeString();
-        $platform->updated_at = Carbon\Carbon::now()->subDays(1)->toDateTimeString();
-        $platform->name = 'Youtube';
+        foreach($criteria_data as $platform_name => $data) {
+            $platform = new Platform();
 
-        $platform->save();
+            $platform->created_at = Carbon\Carbon::now()->toDateTimeString();
+            $platform->updated_at = Carbon\Carbon::now()->toDateTimeString();
+            $platform->name = $platform_name;
+
+            $platform->save();
+        }
     }
 }

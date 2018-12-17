@@ -1,0 +1,51 @@
+{
+  "Youtube": {
+    "location": {
+      "datatype": "string",
+      "api_call": "location",
+      "validate": [
+        "coordinates"
+      ]
+    },
+    "locationRadius": {
+      "datatype": "string",
+      "api_call": "locationRadius",
+      "validate": [
+        "required_with:location",
+        "locationRadius"
+      ]
+    },
+    "publishedAfter": {
+      "datatype": "datetime",
+      "api_call": "publishedAfter",
+      "validate": [
+      ]
+    },
+    "publishedBefore": {
+      "datatype": "datetime",
+      "api_call": "publishedBefore",
+      "validate": [
+      ]
+    },
+    "q": {
+      "datatype": "string",
+      "api_call": "q",
+      "validate": [
+        "required"
+      ]
+    },
+    "topic": {
+      "datatype": "string",
+      "api_call": "topicId",
+      "validate": [
+        "topic"
+      ]
+    }
+  },
+  "Twitter": {
+
+  },
+  "Twitch": {
+
+  }
+}
