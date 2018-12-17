@@ -18,56 +18,26 @@ Create a New Search
                 <div class='form-row'>
                     <div class='form-group col-sm-6'>
                         <label for='searchName'>Search Name</label>
-                        <input type='text' class='form-control' id='searchName'>
+                        <input type='text' class='form-control' id='searchName' name='searchName' value=' {{ old('searchName') }}'>
+                        @include('partials._field-error', ['field' => 'searchName'])
                     </div>
-                    <div class='col-sm-3'>
-                        <div class='form-check additional-col'>
-                            <input class='form-check-input' type='checkbox' id='criteria1' value='criteria1'>
-                            <label class='form-check-label' for='criteria1'>Criteria 1</label>
-                        </div>
-                        <div class='form-group checkbox-value'>
-                            <label for='criteria1-value' class='hidden'>Value for Criteria 1</label>
-                            <input type='text' class='form-control' id='criteria1-value' placeholder='Value'>
-                        </div>
-                    </div>
-                    <div class='col-sm-3'>
-                        <div class='form-check additional-col'>
-                            <input class='form-check-input' type='checkbox' id='criteria2' value='criteria2'>
-                            <label class='form-check-label' for='criteria2'>Criteria 2</label>
-                        </div>
-                        <div class='form-group checkbox-value'>
-                            <label for='criteria2-value' class='hidden'>Value for Criteria 2</label>
-                            <input type='text' class='form-control' id='criteria2-value' placeholder='Value'>
-                        </div>
-                    </div>
+                    @include('partials._criteria_input')
                 </div>
                 <div class='form-row'>
                     <div class='form-group col-sm-6'>
                         <label for='platform'>Platform</label>
-                        <select class='custom-select' id='platform'>
-                            <option>Youtube</option>
+                        <select class='custom-select' id='platform' name='platform' disabled>
+                            <option selected>{{ $platform ? $platform : old('platform') }}</option>
                         </select>
+
+                        @if($platform)
+                            <input type='hidden' name='platform' value='{{ $platform }}'>
+                        @else
+                            <input type='hidden' name='platform' value='{{ old('platform') }}'>
+                        @endif
+
                     </div>
-                    <div class='col-sm-3'>
-                        <div class='form-check additional-col'>
-                            <input class='form-check-input' type='checkbox' id='criteria3' value='criteria3'>
-                            <label class='form-check-label' for='criteria3'>Criteria 3</label>
-                        </div>
-                        <div class='form-group checkbox-value'>
-                            <label for='criteria3-value' class='hidden'>Value for Criteria 3</label>
-                            <input type='text' class='form-control' id='criteria3-value' placeholder='Value'>
-                        </div>
-                    </div>
-                    <div class='col-sm-3'>
-                        <div class='form-check additional-col'>
-                            <input class='form-check-input' type='checkbox' id='criteria4' value='criteria4'>
-                            <label class='form-check-label' for='criteria4'>Criteria 4</label>
-                        </div>
-                        <div class='form-group checkbox-value'>
-                            <label for='criteria4-value' class='hidden'>Value for Criteria 4</label>
-                            <input type='text' class='form-control' id='criteria4-value' placeholder='Value'>
-                        </div>
-                    </div>
+                    @include('partials._criteria_input')
                 </div>
                 <div class='form-row'>
                     <div class='form-group col-sm-6'>
@@ -79,62 +49,72 @@ Create a New Search
                                 </div>
                                 <div class='col-sm-2 no-padding-left no-padding-right'>
                                     <label for='searchFrequency-value' class='hidden'>Search Frequency Value</label>
-                                    <input type='text' class='form-control' id='searchFrequency-value'>
+                                    <input type='text' class='form-control' id='searchFrequency-value' name='searchFrequency-value' value=' {{ old('searchFrequency-value') }}'>
                                 </div>
                                 <div class='col-sm-6'>
                                     <label for='searchFrequency-type' class='hidden'>Search Frequency Type</label>
-                                    <select class='custom-select' id='searchFrequency-type'>
-                                        <option>Minutes</option>
-                                        <option>Hours</option>
-                                        <option>Days</option>
+                                    <select class='custom-select' id='searchFrequency-type' name='searchFrequency-type'>
+                                        <option {{ (old('searchFrequency-type') == "Minutes") ? 'selected' : '' }}>Minutes</option>
+                                        <option {{ (old('searchFrequency-type') == "Hours") ? 'selected' : '' }}>Hours</option>
+                                        <option {{ (old('searchFrequency-type') == "Days") ? 'selected' : '' }}>Days</option>
                                     </select>
+                                </div>
+                            </div>
+                            <div class='row'>
+                                <div class='col'>
+                                    @include('partials._field-error', ['field' => 'searchFrequency-value'])
+                                    @include('partials._field-error', ['field' => 'searchFrequency-type'])
                                 </div>
                             </div>
                         </fieldset>
                     </div>
-                    <div class='col-sm-3'>
-                        <div class='form-check additional-col'>
-                            <input class='form-check-input' type='checkbox' id='criteria5' value='criteria5'>
-                            <label class='form-check-label' for='criteria5'>Criteria 5</label>
-                        </div>
-                        <div class='form-group checkbox-value'>
-                            <label for='criteria5-value' class='hidden'>Value for Criteria 5</label>
-                            <input type='text' class='form-control' id='criteria5-value' placeholder='Value'>
-                        </div>
-                    </div>
-                    <div class='col-sm-3'>
-                        <div class='form-check additional-col'>
-                            <input class='form-check-input' type='checkbox' id='criteria6' value='criteria6'>
-                            <label class='form-check-label' for='criteria6'>Criteria 6</label>
-                        </div>
-                        <div class='form-group checkbox-value'>
-                            <label for='criteria6-value' class='hidden'>Value for Criteria 6</label>
-                            <input type='text' class='form-control' id='criteria6-value' placeholder='Value'>
-                        </div>
-                    </div>
+                    @include('partials._criteria_input')
                 </div>
-                <div class='form-row justify-content-end'>
-                    <div class='col-sm-3'>
-                        <div class='form-check additional-col'>
-                            <input class='form-check-input' type='checkbox' id='criteria7' value='criteria7'>
-                            <label class='form-check-label' for='criteria7'>Criteria 7</label>
+                @while(count($criteria) > 1)
+                    <div class='form-row justify-content-end'>
+                        <div class='col-sm-3'>
+                            <div class='form-check additional-col'>
+                                <input class='form-check-input' type='checkbox' id='criteria-{{ $criteria->last()->name }}' name='criteria-{{ $criteria->last()->name }}' onchange='textDisable(this)' {{ old('criteria-' . $criteria->last()->name) ? 'checked' : '' }}>
+                                <label class='form-check-label' for='criteria-{{ $criteria->last()->name }}'>{{ $criteria->last()->name }}</label>
+                            </div>
+                            <div class='form-group checkbox-value'>
+                                <label for='criteria-{{ $criteria->last()->name }}-value' class='hidden'>Value for {{ $criteria->last()->name }}</label>
+                                <input type='text' class='form-control' id='criteria-{{ $criteria->last()->name }}-value' name='criteria-{{ $criteria->last()->name }}-value' placeholder='Value' value='{{ old('criteria-' . $criteria->last()->name . '-value') }}' {{ old('criteria-' . $criteria->last()->name) ? '' : 'disabled' }}>
+                                @include('partials._field-error', ['field' => 'criteria-' . $criteria->last()->name . '-value'])
+                            </div>
                         </div>
-                        <div class='form-group checkbox-value'>
-                            <label for='criteria7-value' class='hidden'>Value for Criteria 7</label>
-                            <input type='text' class='form-control' id='criteria7-value' placeholder='Value'>
+                        @php($criteria->pop())
+                        <div class='col-sm-3'>
+                            <div class='form-check additional-col'>
+                                <input class='form-check-input' type='checkbox' id='criteria-{{ $criteria->last()->name }}' name='criteria-{{ $criteria->last()->name }}' onchange='textDisable(this)' {{ old('criteria-' . $criteria->last()->name) ? 'checked' : '' }}>
+                                <label class='form-check-label' for='criteria-{{ $criteria->last()->name }}'>{{ $criteria->last()->name }}</label>
+                            </div>
+                            <div class='form-group checkbox-value'>
+                                <label for='criteria-{{ $criteria->last()->name }}-value' class='hidden'>Value for {{ $criteria->last()->name }}</label>
+                                <input type='text' class='form-control' id='criteria-{{ $criteria->last()->name }}-value' name='criteria-{{ $criteria->last()->name }}-value' placeholder='Value' value='{{ old('criteria-' . $criteria->last()->name . '-value') }}' {{ old('criteria-' . $criteria->last()->name) ? '' : 'disabled' }}>
+                                @include('partials._field-error', ['field' => 'criteria-' . $criteria->last()->name . '-value'])
+                            </div>
                         </div>
                     </div>
-                    <div class='col-sm-3'>
-                        <div class='form-check additional-col'>
-                            <input class='form-check-input' type='checkbox' id='criteria8' value='criteria8'>
-                            <label class='form-check-label' for='criteria8'>Criteria 8</label>
-                        </div>
-                        <div class='form-group checkbox-value'>
-                            <label for='criteria8-value' class='hidden'>Value for Criteria 8</label>
-                            <input type='text' class='form-control' id='criteria8-value' placeholder='Value'>
+                    @php($criteria->pop())
+                @endwhile
+
+                @if(count($criteria) > 0)
+                    <div class='form-row justify-content-end'>
+                        <div class='col-sm-3'>
+                            <div class='form-check additional-col'>
+                                <input class='form-check-input' type='checkbox' id='criteria-{{ $criteria->last()->name }}' name='criteria-{{ $criteria->last()->name }}' onchange='textDisable(this)' {{ old('criteria-' . $criteria->last()->name) ? 'checked' : '' }}>
+                                <label class='form-check-label' for='criteria-{{ $criteria->last()->name }}'>{{ $criteria->last()->name }}</label>
+                            </div>
+                            <div class='form-group checkbox-value'>
+                                <label for='criteria-{{ $criteria->last()->name }}-value' class='hidden'>Value for {{ $criteria->last()->name }}</label>
+                                <input type='text' class='form-control' id='criteria-{{ $criteria->last()->name }}-value' name='criteria-{{ $criteria->last()->name }}-value' placeholder='Value' value='{{ old('criteria-' . $criteria->last()->name . '-value') }}' {{ old('criteria-' . $criteria->last()->name) ? '' : 'disabled' }}>
+                                @include('partials._field-error', ['field' => 'criteria-' . $criteria->last()->name . '-value'])
+                            </div>
                         </div>
                     </div>
-                </div>
+                    @php($criteria->pop())
+                @endif
                 <div class='form-row justify-content-end'>
                     <div class='col-sm-3 text-right'>
                         <button class="btn btn-lg btn-pink">Submit</button>

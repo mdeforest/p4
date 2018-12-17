@@ -14,7 +14,7 @@ Search Created!
         <div class='col text-center'>
             <h1>New Search Created!</h1>
             <a class='links top' href='/modify'>View All Searches</a>
-            <a class='links bottom' href='/search'>Create a New Search</a>
+            <a class='links bottom' href='/search/platform'>Create a New Search</a>
         </div>
     </div>
 </div>

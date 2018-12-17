@@ -19,16 +19,19 @@ Register
                         <form method='POST' action='{{ route('register') }}'>
                             {{ csrf_field() }}
                             <div class='form-group'>
-                                <input type='email' class='form-control' id='email' name='email' aria-describedby='email'>
+                                <input type='email' class='form-control' id='email' name='email' aria-describedby='email' value='{{ old('email') }}' required>
                                 <label for='email'>Email</label>
+                                @include('partials._field-error', ['field' => 'email'])
                             </div>
                             <div class='form-group'>
-                                <input type='text' class='form-control' id='username' name='username' aria-describedby='username'>
+                                <input type='text' class='form-control' id='username' name='username' aria-describedby='username' value='{{ old('username') }}' required>
                                 <label for='username'>Username</label>
+                                @include('partials._field-error', ['field' => 'username'])
                             </div>
                             <div class='form-group'>
                                 <input type='password' class='form-control' id='password' name='password' aria-describedby='password'>
                                 <label for='password'>Password</label>
+                                @include('partials._field-error', ['field' => 'password'])
                             </div>
                             <div class='form-group'>
                                 <input type='password' class='form-control' id='password-confirm' name='password_confirmation' aria-describedby='password-confirm'>

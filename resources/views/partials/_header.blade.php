@@ -9,7 +9,7 @@
                 <a class='nav-item nav-link mr-4 pink-font fnt-navbar-large' href='/login'>Log In</a>
                 <a class='nav-item nav-link white-font text-box-pink fnt-navbar-large' href='/register'>Sign Up</a>
             @else
-                <a class='nav-item nav-link mr-2 fnt-navbar-small' href='/search'>Search</a>
+                <a class='nav-item nav-link mr-2 fnt-navbar-small' href='/search/platform'>Search</a>
                 <a class='nav-item nav-link mr-2 fnt-navbar-small' href='/modify'>Modify</a>
                 <a class='nav-item nav-link fnt-navbar-small' href='/review'>Review</a>
                 <div class='dropdown'>
