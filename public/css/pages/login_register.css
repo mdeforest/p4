@@ -30,6 +30,11 @@ label {
     border: 1px solid #EE0E51;
 }
 
+.remember {
+    font-style: normal;
+    color: #EE0E51;
+}
+
 .title-text {
     color: #EE0E51;
     font-size: 1em;
