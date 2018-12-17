@@ -8,6 +8,6 @@ class UserController extends Controller
 {
     public function account(Request $request) {
 
-        return view('user.account');
+        return view('user.account')->with(['user' => $request->user()]);
     }
 }

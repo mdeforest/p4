@@ -27,6 +27,8 @@ Route::group(['middleware' => 'auth'], function() {
     /*
      * Searches
      */
+    Route::get('/search/platform', 'SearchController@searchPlatform');
+    Route::get('/platform-process', 'SearchController@processPlatform');
     Route::get('/search', 'SearchController@create');
     Route::get('/search-process', 'SearchController@processSearch');
     Route::get('/search/created', 'SearchController@searchCreated');
@@ -42,3 +44,5 @@ Route::group(['middleware' => 'auth'], function() {
 });
 
 Auth::routes();
+
+Route::get('/test', 'SearchController@test');
