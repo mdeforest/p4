@@ -1,20 +1,5 @@
 {
   "Youtube": {
-    "location": {
-      "datatype": "string",
-      "api_call": "location",
-      "validate": [
-        "coordinates"
-      ]
-    },
-    "locationRadius": {
-      "datatype": "string",
-      "api_call": "locationRadius",
-      "validate": [
-        "required_with:location",
-        "locationRadius"
-      ]
-    },
     "publishedAfter": {
       "datatype": "datetime",
       "api_call": "publishedAfter",
@@ -38,7 +23,7 @@
       "datatype": "string",
       "api_call": "topicId",
       "validate": [
-        "topic"
+        "regex:/\\/m\\/.*/"
       ]
     }
   },
