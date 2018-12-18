@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Criterion;
 use App\Platform;
 use App\Search;
+use App\Result;
 use Illuminate\Http\Request;
 
 class SearchController extends Controller
@@ -13,8 +14,6 @@ class SearchController extends Controller
         // Choose a platform
 
         $platforms = Platform::all()->pluck('name');
-
-        dump($platforms);
 
         return view('search.searchPlatform')->with(['platforms' => $platforms]);
     }
@@ -68,6 +67,14 @@ class SearchController extends Controller
             $validation[$value] = 'required_if:' . preg_replace('/-value/', '', $value) . ',on';
         }
 
+        foreach (preg_grep("/^criteria-((?!-value).)*$/", array_keys($request->all())) as $criterion) {
+            $criteria = Criterion::where('name', preg_replace('/criteria-/', '', $criterion))->first();
+
+            if($criteria->validation) {
+                $validation[$criteria->name] = $criteria->validation;
+            }
+        }
+
         $request->validate($validation);
 
         $platform = $request->input('platform');
@@ -107,7 +114,9 @@ class SearchController extends Controller
     public function modifyIndex(Request $request) {
         // list all searches
 
-        return view('search.modifyIndex');
+        $searches = Search::with('criteria', 'platform')->where('user_id', \Auth::id())->orderBy('name', 'desc')->get();
+
+        return view('search.modifyIndex')->with(['searches' => $searches]);
     }
 
     public function modify(Request $request) {
@@ -129,13 +138,19 @@ class SearchController extends Controller
     public function reviewIndex(Request $request) {
         // list all search results
 
-        return view('search.reviewIndex');
+        $searches = Search::with('criteria', 'platform')->where('user_id', \Auth::id())->orderBy('name', 'desc')->get();
+
+        return view('search.reviewIndex')->with(['searches' => $searches]);
     }
 
-    public function review(Request $request) {
+    public function review(Request $request, $name) {
         // review a search result
 
-        return view('search.review');
+        $search_id = Search::where('name', $name)->pluck('id')->first();
+
+        $results = Result::with('platform')->where('search_id', $search_id)->get();
+
+        return view('search.review')->with(['results' => $results]);
     }
 
     public function remove(Request $request) {
