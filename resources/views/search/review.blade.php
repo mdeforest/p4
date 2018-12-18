@@ -31,36 +31,14 @@ Review
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Channel Name</td>
-                        <td>Platform</td>
-                        <td>http://url.com</td>
-                        <td>999,999</td>
-                    </tr>
-                    <tr>
-                        <td>Channel Name</td>
-                        <td>Platform</td>
-                        <td>http://url.com</td>
-                        <td>999,999</td>
-                    </tr>
-                    <tr>
-                        <td>Channel Name</td>
-                        <td>Platform</td>
-                        <td>http://url.com</td>
-                        <td>999,999</td>
-                    </tr>
-                    <tr>
-                        <td>Channel Name</td>
-                        <td>Platform</td>
-                        <td>http://url.com</td>
-                        <td>999,999</td>
-                    </tr>
-                    <tr>
-                        <td>Channel Name</td>
-                        <td>Platform</td>
-                        <td>http://url.com</td>
-                        <td>999,999</td>
-                    </tr>
+                    @foreach($results as $result)
+                        <tr>
+                            <td>{{ $result->channel_name }}</td>
+                            <td>{{ $result->platform->name }}</td>
+                            <td>{{ $result->url }}</td>
+                            <td>{{ $result->followers }}</td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

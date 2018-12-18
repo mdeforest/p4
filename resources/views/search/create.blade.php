@@ -117,7 +117,7 @@ Create a New Search
                 @endif
                 <div class='form-row justify-content-end'>
                     <div class='col-sm-3 text-right'>
-                        <button class="btn btn-lg btn-pink">Submit</button>
+                        <button type='submit' class="btn btn-lg btn-pink">Submit</button>
                     </div>
                 </div>
             </form>

@@ -147,10 +147,10 @@ Modify Search
                     </div>
                     <div class='form-row'>
                         <div class='col-sm-6'>
-                            <a href='#' class='btn btn-lg btn-pink'>Back</a>
+                            <a href='/modify' class='btn btn-lg btn-pink'>Back</a>
                         </div>
                         <div class='col-sm-6 text-right'>
-                            <button class="btn btn-lg btn-pink">Update</button>
+                            <button type='submit' class="btn btn-lg btn-pink">Update</button>
                         </div>
                     </div>
                 </form>
