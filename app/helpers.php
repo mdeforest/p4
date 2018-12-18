@@ -1,10 +1,19 @@
 <?php
 
+if (! function_exists('run_search')) {
+    function run_search($search) {
+        $platform_func = strtolower($search->platform->name) . "_search";
+
+        $platform_func($search);
+    }
+}
+
 if (! function_exists('youtube_search')) {
     function youtube_search($search) {
         $params = [
             'part' => 'snippet',
-            'type' => 'channel'
+            'type' => 'channel',
+            'maxResults' => 10
         ];
 
         foreach($search->criteria as $criterion) {
@@ -14,7 +23,7 @@ if (! function_exists('youtube_search')) {
         $results = \Youtube::searchAdvanced($params);
 
         foreach($results as $result_data) {
-            if(!\App\Result::where('channel_name', $result_data->snippet->ChannelTitle)->first()) {
+            if(!\App\Result::where('channel_name', $result_data->snippet->channelTitle)->first()) {
                 $result = new \App\Result();
 
                 $result->search_id = $search->id;
@@ -22,15 +31,13 @@ if (! function_exists('youtube_search')) {
                 $result->user_id = $search->user_id;
 
                 $result->channel_name = $result_data->snippet->channelTitle;
+                $result->url = "https://youtube.com/channel/" . $result_data->id->channelId;
 
                 $channel = \Youtube::getChannelById($result_data->id->channelId);
-
-                $result->url = "https://youtube.com/" . $channel->snippet->customUrl;
                 $result->followers = (int)$channel->statistics->subscriberCount;
 
                 $result->save();
             }
         }
-
     }
 }
