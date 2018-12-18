@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
+use Illuminate\Support\Carbon;
 use App\Search;
 use App\Platform;
 use App\User;
@@ -20,12 +21,12 @@ class SearchesTableSeeder extends Seeder
         for($i = 0; $i < 13; $i++) {
             $search = new Search();
 
-            $search->created_at = Carbon\Carbon::now()->toDateTimeString();
-            $search->updated_at = Carbon\Carbon::now()->toDateTimeString();
+            $search->created_at = Carbon::now()->toDateTimeString();
+            $search->updated_at = Carbon::now()->toDateTimeString();
+            $search->last_run = Carbon::now()->toDateTimeString();
 
             $search->name = Str::random();
             $search->frequency_value = 2;
-            $search->frequency_unit = 'Minutes';
 
             $search->platform_id = Platform::where('name', 'Youtube')->pluck('id')->first();
             $search->user_id = User::inRandomOrder()->pluck('id')->first();
