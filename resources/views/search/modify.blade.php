@@ -15,7 +15,14 @@ Modify Search
                 <h2 class='page-header'>Modify a Search</h2>
             </div>
             <div class='col-sm-6 text-right'>
-                <button class='btn btn-lg btn-pink'>Remove</button>
+                <form method='POST' action='/remove'>
+                    {{ method_field('delete') }}
+
+                    {{ csrf_field() }}
+
+                    <input type='hidden' name='search' value='{{ $name }}'>
+                    <button type='submit' class='btn btn-lg btn-pink'>Remove</button>
+                </form>
             </div>
         </div>
         <div class='row'>

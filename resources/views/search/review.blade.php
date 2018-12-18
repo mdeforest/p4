@@ -16,7 +16,10 @@ Review
             <h2 class='page-header'>Review</h2>
         </div>
         <div class='col-sm-6 text-right'>
-            <button class='btn btn-lg btn-pink'>Run Now</button>
+            <form method='GET' action='/run'>
+                <input type='hidden' name='search' value='{{ $name }}'>
+                <button type='submit' class='btn btn-lg btn-pink'>Run Now</button>
+            </form>
         </div>
     </div>
     <div class='row'>

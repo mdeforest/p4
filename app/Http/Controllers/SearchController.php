@@ -7,6 +7,7 @@ use App\Platform;
 use App\Search;
 use App\Result;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 
 class SearchController extends Controller
 {
@@ -93,13 +94,27 @@ class SearchController extends Controller
         $search = new Search();
 
         $search->name = $searchName;
-        $search->frequency_value = $searchFrequencyValue;
-        $search->frequency_unit = $searchFrequencyType;
+        $search->last_run = Carbon::now()->toDateTimeString();
+
+        switch($searchFrequencyType) {
+            case 'Minutes':
+                $search->frequency_value = $searchFrequencyValue;
+                break;
+            case "Hours":
+                $search->frequency_value = $searchFrequencyValue * 60;
+                break;
+            case "Days":
+                $search->frequency_value = $searchFrequencyValue * 1440;
+                break;
+        }
+
         $search->platform_id = $platform_id;
         $search->user_id = \Auth::id();
         $search->save();
 
         $search->criteria()->attach($criteria_ids);
+
+
 
         return redirect('/search/created');
 
@@ -119,10 +134,10 @@ class SearchController extends Controller
         return view('search.modifyIndex')->with(['searches' => $searches]);
     }
 
-    public function modify(Request $request) {
+    public function modify(Request $request, $name) {
         // modify a search
 
-        return view('search.modify');
+        return view('search.modify')->with(['name' => $name]);
     }
 
     public function processModify(Request $request) {
@@ -146,15 +161,29 @@ class SearchController extends Controller
     public function review(Request $request, $name) {
         // review a search result
 
-        $search_id = Search::where('name', $name)->pluck('id')->first();
+        $search_id = Search::where('name', $name)->where('user_id', \Auth::id())->pluck('id')->first();
 
         $results = Result::with('platform')->where('search_id', $search_id)->get();
 
-        return view('search.review')->with(['results' => $results]);
+        return view('search.review')->with(['results' => $results, 'name' => $name]);
+    }
+
+    public function run(Request $request) {
+        $name = $request->input('search');
+        $search = Search::where('name', $name)->where('user_id', \Auth::id())->first();
+
+        run_search($search);
+
+        redirect('/review/' . $name);
     }
 
     public function remove(Request $request) {
         // remove search
+
+        $name = $request->input('search');
+        $search_id = Search::where('name', $name)->where('user_id', \Auth::id())->pluck('id')->first();
+
+        Search::delete($search_id);
     }
 
     public function test(Request $request) {

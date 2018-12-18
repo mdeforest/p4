@@ -40,6 +40,7 @@ Route::group(['middleware' => 'auth'], function() {
 
     Route::get('/review', 'SearchController@reviewIndex');
     Route::get('/review/{name}', 'SearchController@review');
+    Route::get('/run', 'SearchController@run');
     Route::delete('/remove', 'SearchController@remove');
 });
 
