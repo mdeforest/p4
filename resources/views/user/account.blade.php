@@ -16,23 +16,19 @@ Account
             <h2 class='page-header'>My Account</h2>
             <div class='info'>
                 <p class='data-edit'>
-                    <span class='data'>{{ $user->name }}</span><span class='edit'>Edit</span>
+                    <span class='data'>{{ $user->name }}</span>
                 </p>
                 <p class='help'>Name</p>
                 <p class='data-edit'>
-                    <span class='data'>{{ $user->username }}</span><span class='edit'>Edit</span>
+                    <span class='data'>{{ $user->username }}</span>
                 </p>
                 <p class='help'>Username</p>
-                <p class='data-edit'>
-                    <span class='data'></span><span class='edit'>Edit</span>
-                </p>
-                <p class='help'>Password</p>
             </div>
         </div>
     </div>
     <div class='row fixed-bottom'>
         <div class='col text-left btn-bottom-left'>
-            <button class="btn btn-lg btn-pink">Update</button>
+            <a class="btn btn-lg btn-pink" href='/account/edit'>Update</a>
         </div>
     </div>
 </div>

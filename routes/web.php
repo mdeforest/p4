@@ -23,6 +23,8 @@ Route::group(['middleware' => 'auth'], function() {
      * Users
      */
     Route::get('/account', 'UserController@account');
+    Route::get('/account/edit', 'UserController@accountEdit');
+    Route::put('/account-process', 'UserController@processAccount');
 
     /*
      * Searches
