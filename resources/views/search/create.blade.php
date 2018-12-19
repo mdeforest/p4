@@ -18,7 +18,7 @@ Create a New Search
                 <div class='form-row'>
                     <div class='form-group col-sm-6'>
                         <label for='searchName'>Search Name</label>
-                        <input type='text' class='form-control' id='searchName' name='searchName' value=' {{ old('searchName') }}'>
+                        <input type='text' class='form-control' id='searchName' name='searchName' value='{{ old('searchName') }}'>
                         @include('partials._field-error', ['field' => 'searchName'])
                     </div>
                     @include('partials._criteria_input')
