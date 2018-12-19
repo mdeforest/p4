@@ -72,7 +72,7 @@ class SearchController extends Controller
             $criteria = Criterion::where('name', preg_replace('/criteria-/', '', $criterion))->first();
 
             if($criteria->validation) {
-                $validation[$criteria->name] = $criteria->validation;
+                $validation['criteria-' . $criteria->name . "-value"] = $criteria->validation;
             }
         }
 
@@ -174,7 +174,7 @@ class SearchController extends Controller
 
         run_search($search);
 
-        redirect('/review/' . $name);
+        return redirect('/review/' . $name);
     }
 
     public function remove(Request $request) {
