@@ -19,6 +19,11 @@ Register
                         <form method='POST' action='{{ route('register') }}'>
                             {{ csrf_field() }}
                             <div class='form-group'>
+                                <input type='text' class='form-control' id='name' name='name' aria-describedby='name' value='{{ old('name') }}' required>
+                                <label for='name'>Name</label>
+                                @include('partials._field-error', ['field' => 'name'])
+                            </div>
+                            <div class='form-group'>
                                 <input type='email' class='form-control' id='email' name='email' aria-describedby='email' value='{{ old('email') }}' required>
                                 <label for='email'>Email</label>
                                 @include('partials._field-error', ['field' => 'email'])
