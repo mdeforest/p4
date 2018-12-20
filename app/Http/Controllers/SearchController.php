@@ -260,8 +260,12 @@ class SearchController extends Controller
         // remove search
 
         $name = $request->input('search');
-        $search_id = Search::where('name', $name)->where('user_id', \Auth::id())->pluck('id')->first();
+        $search = Search::where('name', $name)->where('user_id', \Auth::id())->first();
 
-        Search::delete($search_id);
+        $search->criteria()->detach();
+        $search->results()->delete();
+        $search->delete();
+
+        return redirect('/modify');
     }
 }

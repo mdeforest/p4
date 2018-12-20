@@ -20,4 +20,9 @@ class Search extends Model
     {
         return $this->belongsToMany('App\Criterion')->withTimestamps()->withPivot('value');
     }
+
+    public function results()
+    {
+        return $this->hasMany('App\Result');
+    }
 }
