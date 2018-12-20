@@ -3,47 +3,49 @@
 + Production URL: <http://p4.mdeforestdwa.me>
 
 ## Database
-*The following is example info taken from Foobooks; delete and replace with your own info.*
 
 Primary tables:
-  + `books`
-  + `authors`
-  + `tags`
+  + `criteria`
+  + `platforms`
+  + `results`
   + `users`
+  + `searches`
   
 Pivot table(s):
-  + `book_tag`
+  + `criterion_search`
 
 
 ## CRUD
-*Describe what action I need take in order to see an example of all 4 CRUD operations in your app. I've filled this out with examples from the Foobooks app - delete this and replace with your own info. If one operation is performed multiple times (e.g. Read), you only need to provide 1 example.*
 
 __Create__
-  + Visit <http://p4.foobooks.me/books/create>
+  + Visit <http://p4.mdeforestdwa.me/search>
+  + You will be redirected to the platforms page. Fille this out and click *Continue*
   + Fill out form
-  + Click *Add new book*
-  + Observe confirmation message
+  + Click *Submit*
+  + Click *View All Searches*
+  + Observe new search in list of searches
   
 __Read__
-  + Visit <http://p4.foobooks.me/books> see a listing of all books
+  + Visit <http://p4.mdeforestdwa.me/modify>
+  + Observe a listing of all searches for the current user
   
 __Update__
-  + Visit <http://p4.foobooks.me/books>; choose the Edit button next to one of the books
-  + Make some edit to form
+  + Visit <http://p4.mdeforestdwa.me/modify>
+  + Make some edits to the form
   + Click *Save changes*
   + Observe confirmation message
   
 __Delete__
-  + Visit <http://p4.foobooks.me/books>; choose the Delete button next to one of the books
-  + Confirm deletion
-  + Observe confirmation message
+  + Visit <http://p4.mdeforestdwa.me/modify>
+  + Choose a Search to Delete
+  + Click Remove
+  + Observe Confirmation message
 
 ## Outside resources
 *Your list of outside resources go here*
 
 ## Code style divergences
-*List any divergences from PSR-1/PSR-2 and course guidelines on code style*
+Some lines may be over the specified number of characters
 
 ## Notes for instructor
-*Any notes for me to refer to while grading; if none, omit this section*
-
+I included extra platforms to show how they would work, but only Youtube is implemented.
