@@ -18,6 +18,22 @@ class SearchesTableSeeder extends Seeder
      */
     public function run()
     {
+        $q_topics = [
+            'gaming',
+            'makeup',
+            'sports',
+            'animals',
+            'cooking',
+            'baking',
+            'fashion',
+            'programming',
+            'snowboarding',
+            'watches',
+            'lifestyle',
+            'family',
+            'baby'
+        ];
+
         for($i = 0; $i < 13; $i++) {
             $search = new Search();
 
@@ -26,7 +42,7 @@ class SearchesTableSeeder extends Seeder
             $search->last_run = Carbon::now()->toDateTimeString();
 
             $search->name = Str::random();
-            $search->frequency_value = 2;
+            $search->frequency_value = rand(30, 2000);
 
             $search->platform_id = Platform::where('name', 'Youtube')->pluck('id')->first();
             $search->user_id = User::inRandomOrder()->pluck('id')->first();
@@ -35,7 +51,7 @@ class SearchesTableSeeder extends Seeder
 
             $search->save();
 
-            $search->criteria()->attach($id, ['value' => 'cat']);
+            $search->criteria()->attach($id, ['value' => $q_topics[$i]]);
         }
     }
 }

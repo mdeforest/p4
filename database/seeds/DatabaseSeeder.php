@@ -15,5 +15,6 @@ class DatabaseSeeder extends Seeder
         $this->call(PlatformsTableSeeder::class);
         $this->call(CriteriaTableSeeder::class);
         $this->call(SearchesTableSeeder::class);
+        $this->call(ResultsTableSeeder::class);
     }
 }

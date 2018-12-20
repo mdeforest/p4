@@ -21,5 +21,10 @@ class UsersTableSeeder extends Seeder
             ['email' => 'jamal@harvard.edu', 'username' => 'jamalharvard', 'name' => 'Jamal Harvard'],
             ['password' => Hash::make('helloworld')
             ]);
+
+        $user = User::updateOrCreate(
+            ['email' => 'sophia@harvard.edu', 'username' => 'sophiaharvard', 'name' => 'Sophia Harvard'],
+            ['password' => Hash::make('helloworld')
+            ]);
     }
 }
