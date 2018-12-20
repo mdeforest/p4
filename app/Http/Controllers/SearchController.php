@@ -256,8 +256,4 @@ class SearchController extends Controller
 
         Search::delete($search_id);
     }
-
-    public function test(Request $request) {
-        youtube_search(Search::first());
-    }
 }
