@@ -17,34 +17,34 @@
 Route::get('/', 'WelcomeController@index');
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/welcome', 'WelcomeController@welcome');
+    Route::get('/welcome', 'WelcomeController@welcome')->name('welcome');
 
     /*
      * Users
      */
-    Route::get('/account', 'UserController@account');
-    Route::get('/account/edit', 'UserController@accountEdit');
-    Route::put('/account-process', 'UserController@processAccount');
+    Route::get('/account', 'UserController@account')->name('account');
+    Route::get('/account/edit', 'UserController@accountEdit')->name('account.edit');
+    Route::put('/account-process', 'UserController@processAccount')->name('account-process');
 
     /*
      * Searches
      */
-    Route::get('/search/platform', 'SearchController@searchPlatform');
-    Route::get('/platform-process', 'SearchController@processPlatform');
-    Route::get('/search', 'SearchController@create');
-    Route::get('/search-process', 'SearchController@processSearch');
-    Route::get('/search/created', 'SearchController@searchCreated');
-    Route::get('/help/{name}', 'SearchController@help');
+    Route::get('/search/platform', 'SearchController@searchPlatform')->name('search.platform');
+    Route::get('/platform-process', 'SearchController@processPlatform')->name('platform-process');
+    Route::get('/search', 'SearchController@create')->name('search');
+    Route::get('/search-process', 'SearchController@processSearch')->name('search-process');
+    Route::get('/search/created', 'SearchController@searchCreated')->name('search.created');
+    Route::get('/help/{name}', 'SearchController@help')->name('help.name');
 
-    Route::get('/modify', 'SearchController@modifyIndex');
-    Route::get('/modify/{name}', 'SearchController@modify');
-    Route::put('/modify-process', 'SearchController@processModify');
-    Route::get('/modify/{name}/updated', 'SearchController@modifyUpdated');
+    Route::get('/modify', 'SearchController@modifyIndex')->name('modify');
+    Route::get('/modify/{name}', 'SearchController@modify')->name('modify.name');
+    Route::put('/modify-process', 'SearchController@processModify')->name('modify-process');
+    Route::get('/modify/{name}/updated', 'SearchController@modifyUpdated')->name('modify.name.updated');
 
-    Route::get('/review', 'SearchController@reviewIndex');
-    Route::get('/review/{name}', 'SearchController@review');
-    Route::get('/run', 'SearchController@run');
-    Route::delete('/remove', 'SearchController@remove');
+    Route::get('/review', 'SearchController@reviewIndex')->name('review');
+    Route::get('/review/{name}', 'SearchController@review')->name('review.name');
+    Route::get('/run', 'SearchController@run')->name('run');
+    Route::delete('/remove', 'SearchController@remove')->name('remove');
 });
 
 Auth::routes();
