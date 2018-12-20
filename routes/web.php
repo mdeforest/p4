@@ -34,6 +34,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/search', 'SearchController@create');
     Route::get('/search-process', 'SearchController@processSearch');
     Route::get('/search/created', 'SearchController@searchCreated');
+    Route::get('/help/{name}', 'SearchController@help');
 
     Route::get('/modify', 'SearchController@modifyIndex');
     Route::get('/modify/{name}', 'SearchController@modify');

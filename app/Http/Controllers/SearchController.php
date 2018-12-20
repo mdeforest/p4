@@ -126,6 +126,11 @@ class SearchController extends Controller
         return view('search.searchCreated');
     }
 
+    public function help(Request $request, $name) {
+
+        return view('partials._' . str_replace('-', '_', $name) . '_help');
+    }
+
     public function modifyIndex(Request $request) {
         // list all searches
 
