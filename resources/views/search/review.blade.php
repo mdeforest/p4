@@ -38,7 +38,7 @@ Review
                         <tr>
                             <td>{{ $result->channel_name }}</td>
                             <td>{{ $result->platform->name }}</td>
-                            <td>{{ $result->url }}</td>
+                            <td><a href='{{ $result->url }}'>{{ $result->url }}</a></td>
                             <td>{{ $result->followers }}</td>
                         </tr>
                     @endforeach
