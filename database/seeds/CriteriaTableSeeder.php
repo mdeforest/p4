@@ -30,6 +30,8 @@ class CriteriaTableSeeder extends Seeder
                 $criteria->api_call = $criterion_data['api_call'];
                 $criteria->datatype = $criterion_data['datatype'];
 
+                $criteria->help = isset($criterion_data['help']) ? $criterion_data['help'] : null;
+
                 $validations = $criterion_data['validate'];
                 $validation_string = '';
 

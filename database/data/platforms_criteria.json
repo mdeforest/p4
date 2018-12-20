@@ -24,7 +24,8 @@
       "api_call": "topicId",
       "validate": [
         "regex:/\\/m\\/.*/"
-      ]
+      ],
+      "help": "youtube-topic"
     }
   },
   "Twitter": {
