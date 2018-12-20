@@ -8,12 +8,10 @@ use App\Platform;
 use App\User;
 use App\Criterion;
 
-
 class SearchesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     *
      * @return void
      */
     public function run()
@@ -34,7 +32,7 @@ class SearchesTableSeeder extends Seeder
             'baby'
         ];
 
-        for($i = 0; $i < 13; $i++) {
+        for ($i = 0; $i < 13; $i++) {
             $search = new Search();
 
             $search->created_at = Carbon::now()->toDateTimeString();

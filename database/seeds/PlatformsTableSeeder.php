@@ -7,7 +7,6 @@ class PlatformsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     *
      * @return void
      */
     public function run()
@@ -15,7 +14,7 @@ class PlatformsTableSeeder extends Seeder
         $string = file_get_contents(database_path('/data/platforms_criteria.json'));
         $criteria_data = json_decode($string, true);
 
-        foreach($criteria_data as $platform_name => $data) {
+        foreach ($criteria_data as $platform_name => $data) {
             $platform = new Platform();
 
             $platform->created_at = Carbon\Carbon::now()->toDateTimeString();

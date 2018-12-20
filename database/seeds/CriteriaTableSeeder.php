@@ -8,7 +8,6 @@ class CriteriaTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     *
      * @return void
      */
     public function run()
@@ -16,7 +15,7 @@ class CriteriaTableSeeder extends Seeder
         $string = file_get_contents(database_path('/data/platforms_criteria.json'));
         $criteria_data = json_decode($string, true);
 
-        foreach($criteria_data as $platform => $data) {
+        foreach ($criteria_data as $platform => $data) {
             foreach ($data as $criterion => $criterion_data) {
                 $criteria = new Criterion();
 
@@ -35,13 +34,13 @@ class CriteriaTableSeeder extends Seeder
                 $validations = $criterion_data['validate'];
                 $validation_string = '';
 
-                foreach($validations as $validation) {
+                foreach ($validations as $validation) {
                     $validation_string .= $validation . '|';
                 }
 
                 $validation_string = rtrim($validation_string, '|');
 
-                if($validation_string == '') {
+                if ($validation_string == '') {
                     $criteria->validation = null;
                 } else {
                     $criteria->validation = $validation_string;
