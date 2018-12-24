@@ -42,7 +42,12 @@ __Delete__
   + Observe Confirmation message
 
 ## Outside resources
-*Your list of outside resources go here*
+[JQuery](https://jquery.com/)
+[Bootstrap](https://getbootstrap.com/)
+[FontAwesome](https://fontawesome.com)
+[Youtube PHP API Wrapper](https://github.com/madcoda/php-youtube-api)
+[Laravel Debugbar](https://github.com/barryvdh/laravel-debugbar)
+[Laravel Ide-Helper](https://github.com/barryvdh/laravel-ide-helper)
 
 ## Code style divergences
 Some lines may be over the specified number of characters
